@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from thefuck.const import ARGUMENT_PLACEHOLDER
-from thefuck.shells import Fish
+from cunt.const import ARGUMENT_PLACEHOLDER
+from cunt.shells import Fish
 
 
 @pytest.mark.usefixtures('isfile', 'no_memoize', 'no_cache')
@@ -13,9 +13,9 @@ class TestFish(object):
 
     @pytest.fixture(autouse=True)
     def Popen(self, mocker):
-        mock = mocker.patch('thefuck.shells.fish.Popen')
+        mock = mocker.patch('cunt.shells.fish.Popen')
         mock.return_value.stdout.read.side_effect = [(
-            b'cd\nfish_config\nfuck\nfunced\nfuncsave\ngrep\nhistory\nll\nls\n'
+            b'cd\nfish_config\ncunt\nfunced\nfuncsave\ngrep\nhistory\nll\nls\n'
             b'man\nmath\npopd\npushd\nruby'),
             (b'alias fish_key_reader /usr/bin/fish_key_reader\nalias g git\n'
              b'alias alias_with_equal_sign=echo\ninvalid_alias'), b'func1\nfunc2', b'']
@@ -23,10 +23,10 @@ class TestFish(object):
 
     @pytest.mark.parametrize('key, value', [
         ('TF_OVERRIDDEN_ALIASES', 'cut,git,sed'),  # legacy
-        ('THEFUCK_OVERRIDDEN_ALIASES', 'cut,git,sed'),
-        ('THEFUCK_OVERRIDDEN_ALIASES', 'cut, git, sed'),
-        ('THEFUCK_OVERRIDDEN_ALIASES', ' cut,\tgit,sed\n'),
-        ('THEFUCK_OVERRIDDEN_ALIASES', '\ncut,\n\ngit,\tsed\r')])
+        ('CUNT_OVERRIDDEN_ALIASES', 'cut,git,sed'),
+        ('CUNT_OVERRIDDEN_ALIASES', 'cut, git, sed'),
+        ('CUNT_OVERRIDDEN_ALIASES', ' cut,\tgit,sed\n'),
+        ('CUNT_OVERRIDDEN_ALIASES', '\ncut,\n\ngit,\tsed\r')])
     def test_get_overridden_aliases(self, shell, os_environ, key, value):
         os_environ[key] = value
         overridden = shell._get_overridden_aliases()
@@ -36,7 +36,7 @@ class TestFish(object):
     @pytest.mark.parametrize('before, after', [
         ('cd', 'cd'),
         ('pwd', 'pwd'),
-        ('fuck', 'fish -ic "fuck"'),
+        ('cunt', 'fish -ic "cunt"'),
         ('find', 'find'),
         ('funced', 'fish -ic "funced"'),
         ('grep', 'grep'),
@@ -62,7 +62,7 @@ class TestFish(object):
 
     def test_get_aliases(self, shell):
         assert shell.get_aliases() == {'fish_config': 'fish_config',
-                                       'fuck': 'fuck',
+                                       'cunt': 'cunt',
                                        'funced': 'funced',
                                        'funcsave': 'funcsave',
                                        'history': 'history',
@@ -77,24 +77,24 @@ class TestFish(object):
         assert shell.get_aliases() == {'func1': 'func1', 'func2': 'func2'}
 
     def test_app_alias(self, shell):
-        assert 'function fuck' in shell.app_alias('fuck')
-        assert 'function FUCK' in shell.app_alias('FUCK')
-        assert 'thefuck' in shell.app_alias('fuck')
-        assert 'TF_SHELL=fish' in shell.app_alias('fuck')
-        assert 'TF_ALIAS=fuck PYTHONIOENCODING' in shell.app_alias('fuck')
-        assert 'PYTHONIOENCODING=utf-8 thefuck' in shell.app_alias('fuck')
-        assert ARGUMENT_PLACEHOLDER in shell.app_alias('fuck')
+        assert 'function cunt' in shell.app_alias('cunt')
+        assert 'function CUNT' in shell.app_alias('CUNT')
+        assert 'cunt' in shell.app_alias('cunt')
+        assert 'TF_SHELL=fish' in shell.app_alias('cunt')
+        assert 'TF_ALIAS=cunt PYTHONIOENCODING' in shell.app_alias('cunt')
+        assert 'PYTHONIOENCODING=utf-8 cunt' in shell.app_alias('cunt')
+        assert ARGUMENT_PLACEHOLDER in shell.app_alias('cunt')
 
     def test_app_alias_alter_history(self, settings, shell):
         settings.alter_history = True
         assert (
-            'builtin history delete --exact --case-sensitive -- $fucked_up_command\n'
-            in shell.app_alias('FUCK')
+            'builtin history delete --exact --case-sensitive -- $cunt_command\n'
+            in shell.app_alias('CUNT')
         )
-        assert 'builtin history merge\n' in shell.app_alias('FUCK')
+        assert 'builtin history merge\n' in shell.app_alias('CUNT')
         settings.alter_history = False
-        assert 'builtin history delete' not in shell.app_alias('FUCK')
-        assert 'builtin history merge' not in shell.app_alias('FUCK')
+        assert 'builtin history delete' not in shell.app_alias('CUNT')
+        assert 'builtin history merge' not in shell.app_alias('CUNT')
 
     def test_get_history(self, history_lines, shell):
         history_lines(['- cmd: ls', '  when: 1432613911',
@@ -105,7 +105,7 @@ class TestFish(object):
         ('ls', '- cmd: ls\n   when: 1430707243\n'),
         (u'echo café', '- cmd: echo café\n   when: 1430707243\n')])
     def test_put_to_history(self, entry, entry_utf8, builtins_open, mocker, shell):
-        mocker.patch('thefuck.shells.fish.time', return_value=1430707243.3517463)
+        mocker.patch('cunt.shells.fish.time', return_value=1430707243.3517463)
         shell.put_to_history(entry)
         builtins_open.return_value.__enter__.return_value. \
             write.assert_called_once_with(entry_utf8)

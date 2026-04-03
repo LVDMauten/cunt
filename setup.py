@@ -23,11 +23,11 @@ else:
 
 version = sys.version_info[:2]
 if version < (2, 7):
-    print('thefuck requires Python version 2.7 or later' +
+    print('cunt requires Python version 2.7 or later' +
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 elif (3, 0) < version < (3, 5):
-    print('thefuck requires Python version 3.5 or later' +
+    print('cunt requires Python version 3.5 or later' +
           ' ({}.{} detected).'.format(*version))
     sys.exit(-1)
 
@@ -41,23 +41,23 @@ extras_require = {':python_version<"3.4"': ['pathlib2'],
                   ":sys_platform=='win32'": ['win_unicode_console']}
 
 if sys.platform == "win32":
-    scripts = ['scripts\\fuck.bat', 'scripts\\fuck.ps1']
+    scripts = ['scripts\\cunt.bat', 'scripts\\cunt.ps1']
     entry_points = {'console_scripts': [
-                  'thefuck = thefuck.entrypoints.main:main',
-                  'thefuck_firstuse = thefuck.entrypoints.not_configured:main']}
+                  'cunt = cunt.entrypoints.main:main',
+                  'cunt_firstuse = cunt.entrypoints.not_configured:main']}
 else:
     scripts = []
     entry_points = {'console_scripts': [
-                  'thefuck = thefuck.entrypoints.main:main',
-                  'fuck = thefuck.entrypoints.not_configured:main']}
+                  'cunt = cunt.entrypoints.main:main',
+                  'cunt_firstuse = cunt.entrypoints.not_configured:main']}
 
-setup(name='thefuck',
+setup(name='cunt',
       version=VERSION,
-      description="Magnificent app which corrects your previous console command",
+      description="Glorious app which corrects your previous console command by calling it a cunt",
       long_description=long_description,
-      author='Vladimir Iakovlev',
-      author_email='nvbn.rm@gmail.com',
-      url='https://github.com/nvbn/thefuck',
+      author='LVDMauten',
+      author_email='lvdmauten@gmail.com',
+      url='https://github.com/LVDMauten/cunt',
       license='MIT',
       packages=find_packages(exclude=['ez_setup', 'examples',
                                       'tests', 'tests.*', 'release']),

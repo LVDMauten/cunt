@@ -3,8 +3,8 @@
 import os
 import pytest
 import zipfile
-from thefuck.rules.dirty_unzip import match, get_new_command, side_effect
-from thefuck.types import Command
+from cunt.rules.dirty_unzip import match, get_new_command, side_effect
+from cunt.types import Command
 from unicodedata import normalize
 
 

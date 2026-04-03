@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
-from thefuck.rules.fix_alt_space import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.fix_alt_space import match, get_new_command
+from cunt.types import Command
 
 
 def test_match():

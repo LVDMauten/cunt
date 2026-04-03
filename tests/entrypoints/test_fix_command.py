@@ -1,6 +1,6 @@
 import pytest
 from mock import Mock
-from thefuck.entrypoints.fix_command import _get_raw_command
+from cunt.entrypoints.fix_command import _get_raw_command
 
 
 class TestGetRawCommand(object):
@@ -16,9 +16,9 @@ class TestGetRawCommand(object):
 
     @pytest.mark.parametrize('history, result', [
         ('git br', 'git br'),
-        ('git br\nfcuk', 'git br'),
-        ('git br\nfcuk\nls', 'ls'),
-        ('git br\nfcuk\nls\nfuk', 'ls')])
+        ('git br\ncntu', 'git br'),
+        ('git br\ncntu\nls', 'ls'),
+        ('git br\ncntu\nls\ncnu', 'ls')])
     def test_from_history(self, os_environ, history, result):
         os_environ['TF_HISTORY'] = history
         known_args = Mock(force_command=None,

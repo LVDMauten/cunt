@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.yarn_alias import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.yarn_alias import match, get_new_command
+from cunt.types import Command
 
 
 output_remove = 'error Did you mean `yarn remove`?'

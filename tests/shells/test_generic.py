@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from thefuck.shells import Generic
+from cunt.shells import Generic
 
 
 class TestGeneric(object):
@@ -25,11 +25,11 @@ class TestGeneric(object):
         assert shell.get_aliases() == {}
 
     def test_app_alias(self, shell):
-        assert 'alias fuck' in shell.app_alias('fuck')
-        assert 'alias FUCK' in shell.app_alias('FUCK')
-        assert 'thefuck' in shell.app_alias('fuck')
-        assert 'TF_ALIAS=fuck PYTHONIOENCODING' in shell.app_alias('fuck')
-        assert 'PYTHONIOENCODING=utf-8 thefuck' in shell.app_alias('fuck')
+        assert 'alias cunt' in shell.app_alias('cunt')
+        assert 'alias CUNT' in shell.app_alias('CUNT')
+        assert 'cunt' in shell.app_alias('cunt')
+        assert 'TF_ALIAS=cunt PYTHONIOENCODING' in shell.app_alias('cunt')
+        assert 'PYTHONIOENCODING=utf-8 cunt' in shell.app_alias('cunt')
 
     def test_get_history(self, history_lines, shell):
         history_lines(['ls', 'rm'])
@@ -49,7 +49,7 @@ class TestGeneric(object):
         ([OSError], u'Generic Shell', True),
     ])
     def test_info(self, side_effect, expected_info, warn, shell, mocker):
-        warn_mock = mocker.patch('thefuck.shells.generic.warn')
+        warn_mock = mocker.patch('cunt.shells.generic.warn')
         shell._get_version = mocker.Mock(side_effect=side_effect)
         assert shell.info() == expected_info
         assert warn_mock.called is warn

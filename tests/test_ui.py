@@ -2,16 +2,16 @@
 
 import pytest
 from itertools import islice
-from thefuck import ui
-from thefuck.types import CorrectedCommand
-from thefuck import const
+from cunt import ui
+from cunt.types import CorrectedCommand
+from cunt import const
 
 
 @pytest.fixture
 def patch_get_key(monkeypatch):
     def patch(vals):
         vals = iter(vals)
-        monkeypatch.setattr('thefuck.ui.get_key', lambda: next(vals))
+        monkeypatch.setattr('cunt.ui.get_key', lambda: next(vals))
 
     return patch
 
@@ -64,7 +64,7 @@ class TestSelectCommand(object):
 
     def test_without_commands(self, capsys):
         assert ui.select_command(iter([])) is None
-        assert capsys.readouterr() == ('', 'No fucks given\n')
+        assert capsys.readouterr() == ('', 'You\'re a bit of a cunt, aren\'t you?\n')
 
     def test_without_confirmation(self, capsys, commands, settings):
         settings.require_confirmation = False

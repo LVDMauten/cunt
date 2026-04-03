@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.git_remote_seturl_add import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.git_remote_seturl_add import match, get_new_command
+from cunt.types import Command
 
 
 @pytest.mark.parametrize('command', [
@@ -20,7 +20,7 @@ def test_not_match(command):
 
 
 @pytest.mark.parametrize('command, new_command', [
-    (Command('git remote set-url origin git@github.com:nvbn/thefuck.git', ''),
-     'git remote add origin git@github.com:nvbn/thefuck.git')])
+    (Command('git remote set-url origin git@github.com:nvbn/cunt.git', ''),
+     'git remote add origin git@github.com:nvbn/cunt.git')])
 def test_get_new_command(command, new_command):
     assert get_new_command(command) == new_command

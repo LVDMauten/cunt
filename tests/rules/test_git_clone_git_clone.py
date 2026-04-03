@@ -1,5 +1,5 @@
-from thefuck.rules.git_clone_git_clone import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.git_clone_git_clone import match, get_new_command
+from cunt.types import Command
 
 
 output_clean = """

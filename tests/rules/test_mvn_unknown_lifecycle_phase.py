@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.mvn_unknown_lifecycle_phase import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.mvn_unknown_lifecycle_phase import match, get_new_command
+from cunt.types import Command
 
 
 @pytest.mark.parametrize('command', [

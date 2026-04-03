@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.prove_recursively import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.prove_recursively import match, get_new_command
+from cunt.types import Command
 
 
 output = '''Files=0, Tests=0,  0 wallclock secs ( 0.00 usr +  0.00 sys =  0.00 CPU)
@@ -9,7 +9,7 @@ Result: NOTESTS'''
 
 @pytest.fixture
 def isdir(mocker):
-    return mocker.patch('thefuck.rules.prove_recursively'
+    return mocker.patch('cunt.rules.prove_recursively'
                         '.os.path.isdir')
 
 

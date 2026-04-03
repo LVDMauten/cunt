@@ -1,7 +1,7 @@
 import pytest
 
-from thefuck.types import Command
-from thefuck.rules.mercurial import (
+from cunt.types import Command
+from cunt.rules.mercurial import (
     extract_possibilities, match, get_new_command
 )
 
@@ -53,13 +53,13 @@ def test_match(command):
         '\nMercurial Distributed SCM\n\nbasic commands:'
     )),
     Command('hg me', (
-        "\nabort: no repository found in './thefuck' (.hg not found)!"
+        "\nabort: no repository found in './cunt' (.hg not found)!"
     )),
     Command('hg reb', (
-        "\nabort: no repository found in './thefuck' (.hg not found)!"
+        "\nabort: no repository found in './cunt' (.hg not found)!"
     )),
     Command('hg co', (
-        "\nabort: no repository found in './thefuck' (.hg not found)!"
+        "\nabort: no repository found in './cunt' (.hg not found)!"
     )),
 ])
 def test_not_match(command):

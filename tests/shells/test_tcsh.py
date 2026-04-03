@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from thefuck.shells.tcsh import Tcsh
+from cunt.shells.tcsh import Tcsh
 
 
 @pytest.mark.usefixtures('isfile', 'no_memoize', 'no_cache')
@@ -12,9 +12,9 @@ class TestTcsh(object):
 
     @pytest.fixture(autouse=True)
     def Popen(self, mocker):
-        mock = mocker.patch('thefuck.shells.tcsh.Popen')
+        mock = mocker.patch('cunt.shells.tcsh.Popen')
         mock.return_value.stdout.read.return_value = (
-            b'fuck\teval $(thefuck $(fc -ln -1))\n'
+            b'cunt\teval $(cunt $(fc -ln -1))\n'
             b'l\tls -CF\n'
             b'la\tls -A\n'
             b'll\tls -alF')
@@ -22,7 +22,7 @@ class TestTcsh(object):
 
     @pytest.mark.parametrize('before, after', [
         ('pwd', 'pwd'),
-        ('fuck', 'eval $(thefuck $(fc -ln -1))'),
+        ('cunt', 'eval $(cunt $(fc -ln -1))'),
         ('awk', 'awk'),
         ('ll', 'ls -alF')])
     def test_from_shell(self, before, after, shell):
@@ -38,16 +38,16 @@ class TestTcsh(object):
         assert shell.or_('ls', 'cd') == 'ls || cd'
 
     def test_get_aliases(self, shell):
-        assert shell.get_aliases() == {'fuck': 'eval $(thefuck $(fc -ln -1))',
+        assert shell.get_aliases() == {'cunt': 'eval $(cunt $(fc -ln -1))',
                                        'l': 'ls -CF',
                                        'la': 'ls -A',
                                        'll': 'ls -alF'}
 
     def test_app_alias(self, shell):
-        assert 'setenv TF_SHELL tcsh' in shell.app_alias('fuck')
-        assert 'alias fuck' in shell.app_alias('fuck')
-        assert 'alias FUCK' in shell.app_alias('FUCK')
-        assert 'thefuck' in shell.app_alias('fuck')
+        assert 'setenv TF_SHELL tcsh' in shell.app_alias('cunt')
+        assert 'alias cunt' in shell.app_alias('cunt')
+        assert 'alias CUNT' in shell.app_alias('CUNT')
+        assert 'cunt' in shell.app_alias('cunt')
 
     def test_get_history(self, history_lines, shell):
         history_lines(['ls', 'rm'])

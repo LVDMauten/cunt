@@ -1,5 +1,5 @@
-from thefuck.rules.docker_image_being_used_by_container import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.docker_image_being_used_by_container import match, get_new_command
+from cunt.types import Command
 
 
 def test_match():

@@ -1,6 +1,6 @@
 from mock import patch
-from thefuck.rules.has_exists_script import match, get_new_command
-from thefuck.types import Command
+from cunt.rules.has_exists_script import match, get_new_command
+from cunt.types import Command
 
 
 def test_match():
