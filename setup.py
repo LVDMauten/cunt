@@ -2,7 +2,10 @@
 from setuptools import setup, find_packages
 import sys
 import os
-import fastentrypoints
+try:
+    import fastentrypoints  # noqa: F401
+except ImportError:
+    pass
 
 try:
     import pkg_resources
