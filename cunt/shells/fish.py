@@ -59,7 +59,7 @@ class Fish(Generic):
         return ('function {0} -d "Correct your previous console command"\n'
                 '  set -l cunt_command $history[1]\n'
                 '  env TF_SHELL=fish TF_ALIAS={0} PYTHONIOENCODING=utf-8'
-                ' cunt $cunt_command {2} $argv | read -l uncunt_command\n'
+                ' command cunt $cunt_command {2} $argv | read -l uncunt_command\n'
                 '  if [ "$uncunt_command" != "" ]\n'
                 '    eval $uncunt_command\n{1}'
                 '  end\n'

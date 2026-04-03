@@ -25,7 +25,7 @@ class Zsh(Generic):
                 export TF_HISTORY;
                 export PYTHONIOENCODING=utf-8;
                 TF_CMD=$(
-                    cunt {argument_placeholder} $@
+                    command cunt {argument_placeholder} $@
                 ) && eval $TF_CMD;
                 unset TF_HISTORY;
                 export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
@@ -53,7 +53,7 @@ class Zsh(Generic):
             return '''
                 export CUNT_INSTANT_MODE=True;
                 export CUNT_OUTPUT_LOG={log};
-                cunt --shell-logger {log};
+                command cunt --shell-logger {log};
                 rm -f {log};
                 exit
             '''.format(log=log_path)

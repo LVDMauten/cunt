@@ -10,7 +10,7 @@ class Powershell(Generic):
         return 'function ' + alias_name + ' {\n' \
                '    $history = (Get-History -Count 1).CommandLine;\n' \
                '    if (-not [string]::IsNullOrWhiteSpace($history)) {\n' \
-               '        $cunt = $(cunt $args $history);\n' \
+               '        $cunt = $(& (Get-Command cunt -CommandType Application).Source $args $history);\n' \
                '        if (-not [string]::IsNullOrWhiteSpace($cunt)) {\n' \
                '            if ($cunt.StartsWith("echo")) { $cunt = $cunt.Substring(5); }\n' \
                '            else { iex "$cunt"; }\n' \

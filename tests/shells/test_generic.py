@@ -29,7 +29,7 @@ class TestGeneric(object):
         assert 'alias CUNT' in shell.app_alias('CUNT')
         assert 'cunt' in shell.app_alias('cunt')
         assert 'TF_ALIAS=cunt PYTHONIOENCODING' in shell.app_alias('cunt')
-        assert 'PYTHONIOENCODING=utf-8 cunt' in shell.app_alias('cunt')
+        assert 'PYTHONIOENCODING=utf-8 command cunt' in shell.app_alias('cunt')
 
     def test_get_history(self, history_lines, shell):
         history_lines(['ls', 'rm'])
