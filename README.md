@@ -112,10 +112,24 @@ Reading package lists... Done
 
 ## Installation
 
-On macOS or Linux, you can install _Cunt_ via [Homebrew][homebrew]:
+On macOS or Linux, install _Cunt_ via your Homebrew tap:
 
 ```bash
+brew tap LVDMauten/tap
 brew install cunt
+```
+
+After installation, initialize the alias:
+
+```bash
+eval $(cunt --alias)
+```
+
+To download a specific release tarball manually:
+
+```bash
+curl -L -o cunt.tar.gz https://github.com/LVDMauten/cunt/archive/refs/tags/v3.33.tar.gz
+tar -xzf cunt.tar.gz
 ```
 
 On Ubuntu / Mint, install _Cunt_ with the following commands:
@@ -150,7 +164,7 @@ On other systems, install _Cunt_ by using `pip`:
 pip install cunt
 ```
 
-[Alternatively, you may use an OS package manager (OS X, Ubuntu, Arch).](/wiki/Installation)
+[Alternatively, you may use an OS package manager (OS X, Ubuntu, Arch).](https://github.com/LVDMauten/cunt/wiki/Installation)
 
 <a href='#manual-installation' name='manual-installation'>#</a>
 It is recommended that you place this command in your `.bash_profile`,
@@ -184,6 +198,8 @@ cunt -r
 ## Updating
 
 ```bash
+brew upgrade cunt
+# or:
 pip3 install cunt --upgrade
 ```
 
